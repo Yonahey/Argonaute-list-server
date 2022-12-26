@@ -2,6 +2,7 @@ const express = require("express");
 const {default: mongoose} = require("mongoose");
 const server = express();
 const cors = require("cors");
+const argonauteRoute = require("./routes/argonaute");
 
 const DbUri = "mongodb://localhost:27017/compagnons";
 server.use(express.json());
@@ -28,3 +29,5 @@ mongoose.connect(DbUri, {useNewUrlParser: true}).then(() => {
 		console.log("Server has started!");
 	});
 });
+
+argonauteRoute(server);
