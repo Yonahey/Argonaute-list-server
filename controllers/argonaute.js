@@ -14,7 +14,7 @@ module.exports = {
 				name: argonauteName,
 			});
 			creatingArgonaute.save().then(() => {
-				res.send("created new Argonaute !");
+				res.send("nouvel argonaute crée !");
 			});
 		}
 	},
@@ -30,12 +30,13 @@ module.exports = {
 	},
 
 	async deleteArgonautes(req, res) {
-		const {argonauteId} = req.body;
+		console.log(req.params);
+		const {argonauteId} = req.params;
 		try {
 			existingArgonaute = argonaute.findOne({_id: argonauteId});
 
 			if (existingArgonaute) {
-				argonaute.deleteOne({_id: existingArgonaute._id}).then(() => {
+				existingArgonaute.deleteOne().then(() => {
 					res.send("argonaute Supprimé!");
 				});
 			}

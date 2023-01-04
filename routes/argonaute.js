@@ -8,4 +8,8 @@ module.exports = (server) => {
 	server.get("/getArgonautesList", (req, res) => {
 		argonauteController.getArgonautes(req, res);
 	});
+
+	server.delete("/deleteArgonaute/:argonauteId", (req, res) => {
+		argonauteController.deleteArgonautes(req, res);
+	});
 };
